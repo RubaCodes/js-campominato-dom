@@ -19,7 +19,7 @@ function randomNumberRange(min, max) {
 // funzione che genera N bombe: ritorna un array di n numeri univoci
 function generateBombs(bombNumber) {
     const array = [];
-    for (let i = 0; i < bombNumber; i++) {
+    while(array.length <16) {
         const number = randomNumberRange(1, 100);
         if (!array.includes(number)) {
             array.push(number);
@@ -40,5 +40,5 @@ let userNumber;
 
 do{
     userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
-} while (isNaN(userNumber));
+} while (isNaN(userNumber) && !bombs.includes(userNumber));
 
