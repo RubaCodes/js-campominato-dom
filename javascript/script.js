@@ -1,7 +1,7 @@
 
 
-// L’utente non può inserire più volte lo stesso numero.
-// Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
+
+
 // La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 // BONUS: (da fare solo se funziona tutto il resto)
@@ -30,6 +30,8 @@ function generateBombs(bombNumber) {
 
 
 // --- MAIN ---
+
+
 // Il computer deve generare 16 numeri casuali tra 1 e 100.
 // I numeri non possono essere duplicati.
 const bombs = generateBombs(2);
@@ -43,12 +45,16 @@ do {
         userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
     } while (isNaN(userNumber) || userNumber < 1 || userNumber > 100); //sempre compreso tra 1 e 100.
 
-    //se in numero non e' mai stato scelto aggiu8ngilo alla lista
+    //se in numero non e' mai stato scelto aggiungilo alla lista( L’utente non può inserire più volte lo stesso numero.)
     if (!userPickedNumbers.includes(userNumber)) {
         userPickedNumbers.push(userNumber);
+        console.log(userPickedNumbers);
     }
+// Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
+} while (!bombs.includes(userNumber) && userPickedNumbers.includes(userNumber)); // chiedi numero finche non e' gia stato scelto o se ha preso una bomba
 
-    console.log(userPickedNumbers);
-} while (bombs.includes(userNumber) || userPickedNumbers.includes(userNumber));
-
-console.log(userPickedNumbers.length);
+if((100 - bombs.length) == userPickedNumbers.length){
+    console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);
+}else{
+    console.log(`Hai perso e il tuo punteggio e' ${userPickedNumbers.length}`);
+}
