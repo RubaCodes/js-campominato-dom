@@ -1,5 +1,5 @@
 
-// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
+
 // L’utente non può inserire più volte lo stesso numero.
 // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
 // La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
@@ -29,12 +29,16 @@ function generateBombs(bombNumber) {
 }
 
 
-
-
-
-
 // --- MAIN ---
 // Il computer deve generare 16 numeri casuali tra 1 e 100.
 // I numeri non possono essere duplicati.
 const bombs = generateBombs(16);
 console.log(bombs);
+// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
+
+let userNumber;
+
+do{
+    userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
+} while (isNaN(userNumber));
+
