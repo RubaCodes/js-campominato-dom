@@ -33,15 +33,7 @@ function difficultySelect(diff) {
         return maxRange = 50;
     }
 }
-// TEST CONTENUTO DOM
-let field = document.querySelector(".field");
-for (let i = 0; i< 16; i++){
-    const box = document.createElement('div');
-    box.classList.add('box')
-    field.append(box);
-}
 // --- MAIN ---
-
 
 let difficulty;
 // all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
