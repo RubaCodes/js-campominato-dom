@@ -22,3 +22,13 @@ function randomNumberRange(min, max) {
 
 
 // --- MAIN ---
+const bombs = [];
+for (let i = 0; i < 16; i++) {
+    const number = randomNumberRange(1, 100);
+    if (!bombs.includes(number)) {
+        bombs.push(number);
+    }
+
+}
+
+console.log(bombs);
