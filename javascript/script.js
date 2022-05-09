@@ -19,7 +19,7 @@ function randomNumberRange(min, max) {
 // funzione che genera N bombe: ritorna un array di n numeri univoci
 function generateBombs(bombNumber) {
     const array = [];
-    while(array.length <16) {
+    while (array.length < bombNumber) {
         const number = randomNumberRange(1, 100);
         if (!array.includes(number)) {
             array.push(number);
@@ -32,13 +32,16 @@ function generateBombs(bombNumber) {
 // --- MAIN ---
 // Il computer deve generare 16 numeri casuali tra 1 e 100.
 // I numeri non possono essere duplicati.
-const bombs = generateBombs(16);
+const bombs = generateBombs(2);
 console.log(bombs);
-// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
+// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta
 
 let userNumber;
-
-do{
-    userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
-} while (isNaN(userNumber) || userNumber >= 1 || userNumber <=100);
-
+const userPickedNumbers =[];
+//do {
+    do {
+        userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
+    } while ( isNaN(userNumber) || userNumber < 1 || userNumber > 100 ); //sempre compreso tra 1 e 100.
+    userPickedNumbers.push(userNumber);
+    console.log(userPickedNumbers);
+//}while(!bombs.includes(userNumber) || !userPickedNumbers.includes(userNumber));
