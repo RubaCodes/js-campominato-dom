@@ -12,8 +12,21 @@
 // con difficoltà 2 => tra 1 e 50
 
 // --- FUNZIONI ---
+
+// genera numero random compreso da min a max
 function randomNumberRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// funzione che genera N bombe: 10 numberi
+function generateBombs(bombNumber) {
+    const array = [];
+    for (let i = 0; i < bombNumber; i++) {
+        const number = randomNumberRange(1, 100);
+        if (!array.includes(number)) {
+            array.push(number);
+        }
+    }
+    return array;
 }
 
 
@@ -22,13 +35,6 @@ function randomNumberRange(min, max) {
 
 
 // --- MAIN ---
-const bombs = [];
-for (let i = 0; i < 16; i++) {
-    const number = randomNumberRange(1, 100);
-    if (!bombs.includes(number)) {
-        bombs.push(number);
-    }
 
-}
-
+const bombs = generateBombs(10);
 console.log(bombs);
