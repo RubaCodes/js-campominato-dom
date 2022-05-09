@@ -40,5 +40,5 @@ let userNumber;
 
 do{
     userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
-} while (isNaN(userNumber) && !bombs.includes(userNumber));
+} while (isNaN(userNumber) || userNumber >= 1 || userNumber <=100);
 
