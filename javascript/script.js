@@ -36,12 +36,19 @@ const bombs = generateBombs(2);
 console.log(bombs);
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta
 
-let userNumber;
-const userPickedNumbers =[];
-//do {
+let userNumber; //scelta corrente del giocatore
+const userPickedNumbers = [];// numeri scelti dal giocatore, la lunghezza della lista sara' il punteggio  finale del player 
+do {
     do {
         userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
-    } while ( isNaN(userNumber) || userNumber < 1 || userNumber > 100 ); //sempre compreso tra 1 e 100.
-    userPickedNumbers.push(userNumber);
+    } while (isNaN(userNumber) || userNumber < 1 || userNumber > 100); //sempre compreso tra 1 e 100.
+
+    //se in numero non e' mai stato scelto aggiu8ngilo alla lista
+    if (!userPickedNumbers.includes(userNumber)) {
+        userPickedNumbers.push(userNumber);
+    }
+
     console.log(userPickedNumbers);
-//}while(!bombs.includes(userNumber) || !userPickedNumbers.includes(userNumber));
+} while (bombs.includes(userNumber) || userPickedNumbers.includes(userNumber));
+
+console.log(userPickedNumbers.length);
