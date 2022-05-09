@@ -1,9 +1,4 @@
 
-
-
-
-// La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 // BONUS: (da fare solo se funziona tutto il resto)
 // all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
 // con difficoltà 0 => tra 1 e 100
@@ -50,10 +45,12 @@ do {
         userPickedNumbers.push(userNumber);
         console.log(userPickedNumbers);
     }
+    // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
     if ((5 - bombs.length) == userPickedNumbers.length) {
         console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length }`);
     }
     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
 } while (!bombs.includes(userNumber) && userPickedNumbers.includes(userNumber)); // chiedi numero finche non e' gia stato scelto o se ha preso una bomba
 
+// La partita termina quando il giocatore inserisce un numero “vietato” 
 console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);
