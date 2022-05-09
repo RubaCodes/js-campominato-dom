@@ -33,6 +33,13 @@ function difficultySelect(diff) {
         return maxRange = 50;
     }
 }
+// TEST CONTENUTO DOM
+let field = document.querySelector(".field");
+for (let i = 0; i< 16; i++){
+    const box = document.createElement('div');
+    box.classList.add('box')
+    field.append(box);
+}
 // --- MAIN ---
 
 
@@ -72,3 +79,6 @@ do {
 
 // La partita termina quando il giocatore inserisce un numero “vietato” 
 console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`); //tolgo dal punteggio l'ultima immissione
+
+
+
