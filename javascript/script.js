@@ -20,7 +20,7 @@ function randomNumberRange(min, max) {
 function generateBombs(bombNumber) {
     const array = [];
     while (array.length < bombNumber) {
-        const number = randomNumberRange(1, 100);
+        const number = randomNumberRange(1, 5);
         if (!array.includes(number)) {
             array.push(number);
         }
@@ -43,18 +43,17 @@ const userPickedNumbers = [];// numeri scelti dal giocatore, la lunghezza della 
 do {
     do {
         userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
-    } while (isNaN(userNumber) || userNumber < 1 || userNumber > 100); //sempre compreso tra 1 e 100.
+    } while (isNaN(userNumber) || userNumber < 1 || userNumber > 5); //sempre compreso tra 1 e 100.
 
     //se in numero non e' mai stato scelto aggiungilo alla lista( L’utente non può inserire più volte lo stesso numero.)
     if (!userPickedNumbers.includes(userNumber)) {
         userPickedNumbers.push(userNumber);
         console.log(userPickedNumbers);
     }
-// Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
+    if ((5 - bombs.length) == userPickedNumbers.length) {
+        console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length }`);
+    }
+    // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
 } while (!bombs.includes(userNumber) && userPickedNumbers.includes(userNumber)); // chiedi numero finche non e' gia stato scelto o se ha preso una bomba
 
-if((100 - bombs.length) == userPickedNumbers.length){
-    console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);
-}else{
-    console.log(`Hai perso e il tuo punteggio e' ${userPickedNumbers.length}`);
-}
+console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);
