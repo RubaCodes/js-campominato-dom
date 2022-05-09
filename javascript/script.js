@@ -11,7 +11,7 @@
 function randomNumberRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-// funzione che genera N bombe: ritorna un array di n numeri univoci
+// funzione che genera N bombe: ritorna un array di n numeri univoci nel range specificato
 function generateBombs(bombNumber, range) {
     const array = [];
     while (array.length < bombNumber) {
@@ -22,28 +22,30 @@ function generateBombs(bombNumber, range) {
     }
     return array;
 }
-
+//funzione che ritorna il range massimo associato alal difficolta del gioco
 function difficultySelect(diff) {
+    let maxRange;
     if (diff === 0) {
-        return 100;
+        return maxRange = 100;
     } else if (diff === 1) {
-        return 80;
+        return maxRange = 80;
     } else {
-        return 50;
+        return maxRange = 50;
     }
 }
 // --- MAIN ---
+
+
+let difficulty;
 // all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
 // con difficoltà 0 => tra 1 e 100
 // con difficoltà 1 => tra 1 e 80
 // con difficoltà 2 => tra 1 e 50
-
-let difficulty;
 do {
     difficulty = Number(prompt(`Scegliere la difficolta': 0 => tra 1 e 100 , 1 => tra 1 e 80 , 2 => tra 1 e 50`))
 } while (isNaN(difficulty) || difficulty < 0 || difficulty > 2);
 
-// Il computer deve generare 16 numeri casuali tra 1 e 100.
+// Il computer deve generare 16 numeri casuali tra 1 e il range specificato dalla difficolta'.
 // I numeri non possono essere duplicati.
 const bombs = generateBombs(16, difficultySelect(difficulty));
 console.log(bombs);
@@ -54,7 +56,7 @@ const userPickedNumbers = [];// numeri scelti dal giocatore, la lunghezza della 
 do {
     do {
         userNumber = Number(prompt('Inserisci un numero tra quelli rimanenti:'))
-    } while (isNaN(userNumber) || userNumber < 1 || userNumber > difficultySelect(difficulty)); //sempre compreso tra 1 e 100.
+    } while (isNaN(userNumber) || userNumber < 1 || userNumber > difficultySelect(difficulty)); //sempre compreso tra 1 e e il range di difficolta selezionato.
 
     //se in numero non e' mai stato scelto aggiungilo alla lista( L’utente non può inserire più volte lo stesso numero.)
     if (!userPickedNumbers.includes(userNumber)) {
@@ -69,4 +71,4 @@ do {
 } while (!bombs.includes(userNumber) && userPickedNumbers.includes(userNumber)); // chiedi numero finche non e' gia stato scelto o se ha preso una bomba
 
 // La partita termina quando il giocatore inserisce un numero “vietato” 
-console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);
+console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`); //tolgo dal punteggio l'ultima immissione
