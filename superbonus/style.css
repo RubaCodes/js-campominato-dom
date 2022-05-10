@@ -5,8 +5,8 @@
     margin: 0;
     padding: 0;
 }
-
-header{
+/* HEADER */
+header, footer{
     padding: 30px 0;
     background-color: antiquewhite;
 }
@@ -27,4 +27,33 @@ header .container{
 }
 .header-right button,.header-right select{
     padding: 5px 10px;
+}
+/* MAIN */
+
+.field{
+    padding: 50px 150px;
+    display: flex;
+    justify-content: center; 
+    flex-flow: row wrap;
+}
+
+.box{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(97, 96, 96);
+    height: 100px;
+    width: 100px;
+    border: 3px solid lightblue;
+    border-radius: 10px;
+}
+
+.box.bomb{
+    background-color: red;
+}
+.box.clear{
+    background-color: green;
 }
