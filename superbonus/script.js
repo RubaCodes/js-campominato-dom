@@ -49,6 +49,8 @@ function difficultySelect(diff) {
 
 
 
+
+
 // --- MAIN ---
 
 //hook al play e selezione difficolta
@@ -63,44 +65,5 @@ play.addEventListener('click', function () {
     const bombs = generateBombs(16, difficulty);
 
     console.log(bombs);
-    for(let i =1; i<= difficulty;i++){
-        const button = document.getElementById(`${i}`);
-        button.addEventListener('click', function(){
-            console.log(i);
-        })
-    }
-    //let userNumber; //scelta corrente del giocatore
-    //const userPickedNumbers = [];// numeri scelti dal giocatore, la lunghezza della lista sara' il punteggio  finale del player 
-    // do {
-    //     //sempre compreso tra 1 e e il range di difficolta selezionato.
-
-    //     //se in numero non e' mai stato scelto aggiungilo alla lista( L’utente non può inserire più volte lo stesso numero.)
-    //     if (!userPickedNumbers.includes(userNumber)) {
-    //         userPickedNumbers.push(userNumber);
-    //         console.log(userPickedNumbers);
-    //     }
-    //     document.getElementById(`${userNumber}`).className = 'box clear' // colora di verde il box pulito
-    //     // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-    //     if ((difficulty - bombs.length) == userPickedNumbers.length) {
-    //         risultato.append(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
-    //         console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);//per la console
-    //     }
-    //     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
-    // } while (!bombs.includes(userNumber) && userPickedNumbers.includes(userNumber)); // chiedi numero finche non e' gia stato scelto o se ha preso una bomba
-
-    // // La partita termina quando il giocatore inserisce un numero “vietato” / colora di rosso la bomba
-    // console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`); //tolgo dal punteggio l'ultima immissione , per la console
-    // document.getElementById(`${userNumber}`).className = 'box bomb'
-
-    // //- al termine della partita mostra le bombe 
-    // for (let i = 0; i < bombs.length; i++) {
-    //     document.getElementById(`${bombs[i]}`).className = 'box bomb';
-    // }
-
-
-    // risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);//per la modale
-    // modale.classList.add('active');
-
-}
-);
-
+    const userPickedNumbers = [];
+});
