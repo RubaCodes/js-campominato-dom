@@ -59,3 +59,21 @@ body{
 .box.clear{
     background-color: green;
 }
+
+/* modale */
+.modal{
+    z-index: 100;
+    display: none;
+    position: fixed;
+    height: 300px;
+    width: 400px;
+    background-color: blue;
+    top: 20px;
+    right: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.425);
+
+}
+.active{
+    display: block;
+}

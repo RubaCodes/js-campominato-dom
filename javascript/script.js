@@ -95,13 +95,16 @@ do {
 console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`); //tolgo dal punteggio l'ultima immissione
 document.getElementById(`${userNumber}`).className = 'box bomb'
 
+//- al termine della partita mostra le bombe 
+for (let i = 0; i < bombs.length; i++) {
+    document.getElementById(`${bombs[i] + 1}`).className = 'box bomb';
+}
+//--aggiungere modale al termine del gioco
+const modale = document.getElementsByClassName('modal')[0];
 
+modale.classList.add('active');
 //da implelementare
 //- clicca qui per continuare tra un prompt e l'altro per permettere al giocatore di vedere i numeri rimasti da selezionare
 
 //--aggiungere modale al termine del gioco
 
-//- al termine della partita mostra le bombe 
-for (let i = 0; i < bombs.length; i++) {
-    document.getElementById(`${bombs[i] + 1}`).className = 'box bomb';
-}
