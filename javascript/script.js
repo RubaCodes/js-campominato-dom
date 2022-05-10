@@ -6,7 +6,17 @@
 // con difficoltà 2 => tra 1 e 50
 
 // --- FUNZIONI ---
-
+//funzione che genera il campo di battaglia con un numero di tile pari a quello della difficolta
+function fieldGenerator(tileNumber, hook) {
+    let father = document.querySelector(hook);
+    for (let i = 1; i <= tileNumber; i++) {
+        const box = document.createElement('div');
+        box.classList.add('box');
+        box.id = i;
+        box.append(i);
+        father.append(box);
+    }
+}
 // genera numero random compreso da min a max
 function randomNumberRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -45,6 +55,7 @@ do {
 } while (isNaN(difficulty) || difficulty < 0 || difficulty > 2);
 
 let maxDifficultyRange = difficultySelect(difficulty);
+fieldGenerator(maxDifficultyRange, '.field');
 // Il computer deve generare 16 numeri casuali tra 1 e il range specificato dalla difficolta'.
 // I numeri non possono essere duplicati.
 const bombs = generateBombs(16, maxDifficultyRange);
