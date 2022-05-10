@@ -19,10 +19,11 @@ function fieldGenerator(tileNumber, hook) {
 }
 
 //funzione che se il tag e' cliccato ritorna true altrimenti ritorna false
-function isClicked(id){
+function isClicked(id) {
     const button = document.getElementById(`${id}`);
-    if(button.classList.includes('clicked')){
-        return true}
+    if (button.classList.includes('clicked')) {
+        return true
+    }
     return false
 }
 // genera numero random compreso da min a max
@@ -101,3 +102,6 @@ document.getElementById(`${userNumber}`).className = 'box bomb'
 //--aggiungere modale al termine del gioco
 
 
+for (let i = 0; i < bombs.length; i++) {
+    document.getElementById(`${bombs[i] + 1}`).className = 'box bomb'
+}
