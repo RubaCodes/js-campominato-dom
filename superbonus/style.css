@@ -1,0 +1,30 @@
+/* RESET */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    padding: 30px 0;
+    background-color: antiquewhite;
+}
+.container{
+    max-width: 80%;
+    margin: auto;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.header-right button,.header-right select{
+    padding: 5px 10px;
+}
