@@ -66,4 +66,10 @@ play.addEventListener('click', function () {
 
     console.log(bombs);
     const userPickedNumbers = [];
+
+    //aggiungere ai 100 div un event listener con collegata una funzione dche fa il check bomba/non bomba
+    for(let i=1; i<=100;i++){
+        const button = document.getElementById(`${i}`);
+        button.addEventListener('click', function(){console.log(i)})
+    }
 });
