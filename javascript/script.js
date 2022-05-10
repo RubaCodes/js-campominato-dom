@@ -53,7 +53,9 @@ function difficultySelect(diff) {
     }
 }
 // --- MAIN ---
-
+//--aggiungere modale al termine del gioco
+const modale = document.getElementsByClassName('modal')[0];
+const risultato = document.getElementById('risultato');
 let difficulty;
 // all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
 // con difficoltà 0 => tra 1 e 100
@@ -86,6 +88,7 @@ do {
     document.getElementById(`${userNumber}`).className = 'box clear' // colora di verde il box pulito
     // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
     if ((maxDifficultyRange - bombs.length) == userPickedNumbers.length) {
+        risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);
         console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);
     }
     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
@@ -97,11 +100,11 @@ document.getElementById(`${userNumber}`).className = 'box bomb'
 
 //- al termine della partita mostra le bombe 
 for (let i = 0; i < bombs.length; i++) {
-    document.getElementById(`${bombs[i] + 1}`).className = 'box bomb';
+    document.getElementById(`${bombs[i]}`).className = 'box bomb';
 }
-//--aggiungere modale al termine del gioco
-const modale = document.getElementsByClassName('modal')[0];
 
+
+risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);
 modale.classList.add('active');
 //da implelementare
 //- clicca qui per continuare tra un prompt e l'altro per permettere al giocatore di vedere i numeri rimasti da selezionare

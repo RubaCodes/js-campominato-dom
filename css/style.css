@@ -75,5 +75,10 @@ body{
 
 }
 .active{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: large;
+    padding: 0 50px;
 }
