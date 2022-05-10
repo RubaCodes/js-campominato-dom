@@ -17,6 +17,14 @@ function fieldGenerator(tileNumber, hook) {
         father.append(box);
     }
 }
+
+//funzione che se il tag e' cliccato ritorna true altrimenti ritorna false
+function isClicked(id){
+    const button = document.getElementById('send');
+    if(button.classList.includes('clicked')){
+        return true}
+    return false
+}
 // genera numero random compreso da min a max
 function randomNumberRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
