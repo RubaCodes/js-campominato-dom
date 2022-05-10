@@ -74,6 +74,7 @@ do {
         userPickedNumbers.push(userNumber);
         console.log(userPickedNumbers);
     }
+    document.getElementById(`${userNumber}`).className = 'box clear' // colora di verde il box pulito
     // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
     if ((maxDifficultyRange - bombs.length) == userPickedNumbers.length) {
         console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);
@@ -81,8 +82,8 @@ do {
     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
 } while (!bombs.includes(userNumber) && userPickedNumbers.includes(userNumber)); // chiedi numero finche non e' gia stato scelto o se ha preso una bomba
 
-// La partita termina quando il giocatore inserisce un numero “vietato” 
+// La partita termina quando il giocatore inserisce un numero “vietato” / colora di rosso la bomba
 console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`); //tolgo dal punteggio l'ultima immissione
-
+document.getElementById(`${userNumber}`).className = 'box bomb'
 
 
