@@ -8,7 +8,7 @@
 // --- FUNZIONI ---
 //funzione che genera il campo di battaglia con un numero di tile pari a quello della difficolta
 function fieldGenerator(tileNumber, hook) {
-    let father = document.querySelector(hook);
+    const father = document.querySelector(hook);
     for (let i = 1; i <= tileNumber; i++) {
         const box = document.createElement('div');
         box.classList.add('box');
