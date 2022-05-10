@@ -87,3 +87,8 @@ console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.len
 document.getElementById(`${userNumber}`).className = 'box bomb'
 
 
+//da implelementare
+//- clicca qui per continuare tra un prompt e l'altro per permettere al giocatore di vedere i numeri rimasti da selezionare
+//- alla sconfitta mostra tutto il campo rivelando la posizione delle bombe
+
+
