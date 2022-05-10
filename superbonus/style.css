@@ -29,7 +29,9 @@ header .container{
     padding: 5px 10px;
 }
 /* MAIN */
-
+main{
+    background-color:lightblue;
+}
 .field{
     padding: 50px 150px;
     display: flex;
