@@ -73,6 +73,7 @@ play.addEventListener('click', function () {
     for (let i = 1; i <= difficulty; i++) {
         const button = document.getElementById(`${i}`);
         button.addEventListener('click', function () {
+            if(!isAlive) return;
             //se l'id del box combacia con un valore delle bombe allora colora di rosso la casella 
             if (bombs.includes(Number(button.id))) {
                 button.className = "box bomb";
@@ -88,10 +89,12 @@ play.addEventListener('click', function () {
             }
         });
     }
-    console.log(isAlive);
-    if (!isAlive) { // on
-        alert('hai perso!');
+    if(difficulty -bombs.length == userPickedNumbers.length){
+        console.log('hai vinto');
     }
     // se hhai raggiunto il numero max di tile corretti . hai vinto
     //altriementi hai perso e queto e' il tuo punteggio
+    else{
+        console.log('hai perso');
+    }
 });
