@@ -88,14 +88,14 @@ do {
     document.getElementById(`${userNumber}`).className = 'box clear' // colora di verde il box pulito
     // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
     if ((maxDifficultyRange - bombs.length) == userPickedNumbers.length) {
-        risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);
-        console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);
+        risultato.append(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
+        console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);//per la console
     }
     // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.    
 } while (!bombs.includes(userNumber) && userPickedNumbers.includes(userNumber)); // chiedi numero finche non e' gia stato scelto o se ha preso una bomba
 
 // La partita termina quando il giocatore inserisce un numero “vietato” / colora di rosso la bomba
-console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`); //tolgo dal punteggio l'ultima immissione
+console.log(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`); //tolgo dal punteggio l'ultima immissione , per la console
 document.getElementById(`${userNumber}`).className = 'box bomb'
 
 //- al termine della partita mostra le bombe 
@@ -104,7 +104,7 @@ for (let i = 0; i < bombs.length; i++) {
 }
 
 
-risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);
+risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length - 1}`);//per la modale
 modale.classList.add('active');
 //da implelementare
 //- clicca qui per continuare tra un prompt e l'altro per permettere al giocatore di vedere i numeri rimasti da selezionare
