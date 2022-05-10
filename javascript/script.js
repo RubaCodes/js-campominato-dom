@@ -98,10 +98,10 @@ document.getElementById(`${userNumber}`).className = 'box bomb'
 
 //da implelementare
 //- clicca qui per continuare tra un prompt e l'altro per permettere al giocatore di vedere i numeri rimasti da selezionare
-//- alla sconfitta mostra tutto il campo rivelando la posizione delle bombe
+
 //--aggiungere modale al termine del gioco
 
-
+//- al termine della partita mostra le bombe 
 for (let i = 0; i < bombs.length; i++) {
-    document.getElementById(`${bombs[i] + 1}`).className = 'box bomb'
+    document.getElementById(`${bombs[i] + 1}`).className = 'box bomb';
 }
