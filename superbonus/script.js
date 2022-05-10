@@ -55,18 +55,20 @@ function difficultySelect(diff) {
 const play = document.querySelector('#play');
 console.log(play);
 play.addEventListener('click', function () {
-    let difficulty = document.querySelector('#difficolta').value;
-    difficultySelect(difficulty);
-    console.log(difficulty,difficultySelect(difficulty))
+    const select = document.querySelector('#difficolta').value;
+    const difficulty = difficultySelect(select);
+    console.log(difficulty, select)
 
+    fieldGenerator(difficulty, '.field');
+    const bombs = generateBombs(16, difficulty);
 
-     fieldGenerator(difficultySelect(difficulty), '.field');
-    // // Il computer deve generare 16 numeri casuali tra 1 e il range specificato dalla difficolta'.
-    // // I numeri non possono essere duplicati.
-    // const bombs = generateBombs(16, difficulty);
-    // console.log(bombs);
-    // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta
-
+    console.log(bombs);
+    for(let i =1; i<= difficulty;i++){
+        const button = document.getElementById(`${i}`);
+        button.addEventListener('click', function(){
+            console.log(i);
+        })
+    }
     //let userNumber; //scelta corrente del giocatore
     //const userPickedNumbers = [];// numeri scelti dal giocatore, la lunghezza della lista sara' il punteggio  finale del player 
     // do {
