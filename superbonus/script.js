@@ -65,10 +65,13 @@ play.addEventListener('click', function () {
 
     fieldGenerator(difficulty, '.field');
     const bombs = generateBombs(16, difficulty);
+    //hokk per modale
+    const modale = document.getElementsByClassName('modal')[0];
+    const risultato = document.getElementById('risultato');
 
     console.log(bombs);
     const userPickedNumbers = [];
-     let isAlive = true;
+    let isAlive = true;
     //bollean per verificare se e' morto
     //aggiungere ai 100 div un event listener con collegata una funzione dche fa il check bomba/non bomba
     for (let i = 1; i <= difficulty; i++) {
@@ -79,7 +82,8 @@ play.addEventListener('click', function () {
             if (bombs.includes(Number(button.id))) {
                 button.className = "box bomb";
                 isAlive = false;
-                console.log(`Hai perso e il tuo punteggio e' ${userPickedNumbers.length}`);
+                risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
+                modale.classList.add('active');
             }
             else {
                 //se l'elemento non appare tra quelli gia selezionati , pushalo in quella lista e coloradi verde la casella
@@ -88,9 +92,10 @@ play.addEventListener('click', function () {
                     button.className = "box clear";
                     console.log(userPickedNumbers);
                 }
-                if(difficulty - bombs.length == userPickedNumbers.length){
+                if (difficulty - bombs.length == userPickedNumbers.length) {
                     isAlive = false;
-                    console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);
+                    risultato.append(`HAI VINTO!!! iL tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
+                    modale.classList.add('active');
                 }
 
 
