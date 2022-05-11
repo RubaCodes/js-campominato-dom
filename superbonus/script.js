@@ -82,6 +82,9 @@ play.addEventListener('click', function () {
             if (bombs.includes(Number(button.id))) {
                 button.className = "box bomb";
                 isAlive = false;
+                for (let i = 0; i < bombs.length; i++) {
+                    document.getElementById(`${bombs[i]}`).className = 'box bomb';
+                }
                 risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
                 modale.classList.add('active');
             }
