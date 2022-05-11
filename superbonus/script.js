@@ -57,6 +57,7 @@ function difficultySelect(diff) {
 const play = document.querySelector('#play');
 console.log(play);
 
+
 play.addEventListener('click', function () {
     const select = document.querySelector('#difficolta').value;
     const difficulty = difficultySelect(select);
@@ -67,8 +68,8 @@ play.addEventListener('click', function () {
 
     console.log(bombs);
     const userPickedNumbers = [];
-    let isAlive = true;
-    //bolean per verificare se e' morto
+     let isAlive = true;
+    //bollean per verificare se e' morto
     //aggiungere ai 100 div un event listener con collegata una funzione dche fa il check bomba/non bomba
     for (let i = 1; i <= difficulty; i++) {
         const button = document.getElementById(`${i}`);
@@ -77,7 +78,8 @@ play.addEventListener('click', function () {
             //se l'id del box combacia con un valore delle bombe allora colora di rosso la casella 
             if (bombs.includes(Number(button.id))) {
                 button.className = "box bomb";
-                return isAlive = false;
+                isAlive = false;
+                console.log(`Hai perso e il tuo punteggio e' ${userPickedNumbers.length}`);
             }
             else {
                 //se l'elemento non appare tra quelli gia selezionati , pushalo in quella lista e coloradi verde la casella
@@ -86,15 +88,13 @@ play.addEventListener('click', function () {
                     button.className = "box clear";
                     console.log(userPickedNumbers);
                 }
+                if(difficulty - bombs.length == userPickedNumbers.length){
+                    isAlive = false;
+                    console.log(`Hai vinto e il tuo punteggio e' ${userPickedNumbers.length}`);
+                }
+
+
             }
         });
-    }
-    if (difficulty - bombs.length == userPickedNumbers.length) {
-        console.log('hai vinto');
-    }
-    // se hhai raggiunto il numero max di tile corretti . hai vinto
-    //altriementi hai perso e queto e' il tuo punteggio
-    else {
-        console.log('hai perso');
     }
 });
