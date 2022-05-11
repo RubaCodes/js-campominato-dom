@@ -73,7 +73,7 @@ play.addEventListener('click', function () {
             if (bombs.includes(Number(button.id))) {
                 button.className = "box bomb";
                 isAlive = false;
-                //mostra bombe alla sconfitta
+                //mostra bombe alla sconfittarefactoring js
                 for (let i = 0; i < bombs.length; i++) {
                     document.getElementById(`${bombs[i]}`).className = 'box bomb';
                 }
