@@ -64,6 +64,7 @@ main{
 }
 /* modal */
 .overlay-modal{
+    display: none;
     position: fixed;
     z-index: 50;
     top: 0;

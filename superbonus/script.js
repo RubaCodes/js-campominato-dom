@@ -57,6 +57,7 @@ play.addEventListener('click', function () {
     fieldGenerator(difficulty, '.field');
     const bombs = generateBombs(16, difficulty);
     //hook per modale
+    const overlayModale = document.getElementsByClassName('overlay-modal')[0];
     const modale = document.getElementsByClassName('modal')[0];
     const risultato = document.getElementById('risultato');
 
@@ -79,6 +80,7 @@ play.addEventListener('click', function () {
                 }
                 risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
                 modale.classList.add('active');
+                overlayModale.classList.add('active')
             }
             else {
                 //se l'elemento non appare tra quelli gia selezionati , pushalo in quella lista e coloradi verde la casella
@@ -91,6 +93,7 @@ play.addEventListener('click', function () {
                     isAlive = false;
                     risultato.append(`HAI VINTO!!! iL tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
                     modale.classList.add('active');
+                    overlayModale.classList.add('active')
                 }
             }
         });
