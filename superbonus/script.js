@@ -53,6 +53,8 @@ play.addEventListener('click', function () {
     const select = document.querySelector('#difficolta').value;
     const difficulty = difficultySelect(select);
     console.log(difficulty, select)
+    //pulizia campo da gioco
+    document.querySelector('.field').innerHTML = '';
     //genrazione campo da gioco
     fieldGenerator(difficulty, '.field');
     const bombs = generateBombs(16, difficulty);
