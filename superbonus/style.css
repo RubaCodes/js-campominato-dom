@@ -11,11 +11,12 @@ header, footer{
     background-color: antiquewhite;
 }
 .container{
-    max-width: 80%;
+    max-width: 50%;
     margin: auto;
 }
 
-header .container{
+header .container, footer .container{
+    max-width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +35,9 @@ main{
 }
 .field{
     padding: 50px 150px;
+    min-height:calc(100vh - 178px) ;
     display: flex;
+    align-items: center;
     justify-content: center; 
     flex-flow: row wrap;
 }
@@ -42,13 +45,13 @@ main{
 .box{
     color: white;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(97, 96, 96);
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
     border: 3px solid lightblue;
     border-radius: 10px;
 }
@@ -60,6 +63,15 @@ main{
     background-color: green;
 }
 /* modal */
+.overlay-modal{
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.411)
+}
 .modal{
     z-index: 100;
     display: none;
