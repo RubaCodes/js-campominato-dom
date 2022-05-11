@@ -79,6 +79,7 @@ play.addEventListener('click', function () {
                 //mostra bombe alla sconfittarefactoring js
                 for (let i = 0; i < bombs.length; i++) {
                     document.getElementById(`${bombs[i]}`).className = 'box bomb';
+                    document.getElementById(`${bombs[i]}`).style.backgroundImage = `url('bomb.png')`
                 }
                 risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
                 modale.classList.add('active');
