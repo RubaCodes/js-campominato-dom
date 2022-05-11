@@ -58,7 +58,7 @@ main{
 }
 
 .box.bomb{
-    background-color: red;
+    background-color: rgb(255, 0, 0);
 }
 .box.clear{
     background-color: green;

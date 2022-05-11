@@ -79,7 +79,13 @@ play.addEventListener('click', function () {
                 //mostra bombe alla sconfittarefactoring js
                 for (let i = 0; i < bombs.length; i++) {
                     document.getElementById(`${bombs[i]}`).className = 'box bomb';
-                    document.getElementById(`${bombs[i]}`).style.backgroundImage = `url('bomb.png')`
+                    document.getElementById(`${bombs[i]}`).innerHTML = '';
+                    const bombPng = document.createElement('img');
+                    bombPng.src = 'bomb.png'
+                    bombPng.style.width = '80%';
+                    bombPng.style.margin = 'auto';
+                    document.getElementById(`${bombs[i]}`).append(bombPng);
+
                 }
                 risultato.append(`Hai colpito una bomba e il tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
                 modale.classList.add('active');
