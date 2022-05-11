@@ -1,10 +1,4 @@
 
-// BONUS: (da fare solo se funziona tutto il resto)
-// all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
-// con difficoltà 0 => tra 1 e 100
-// con difficoltà 1 => tra 1 e 80
-// con difficoltà 2 => tra 1 e 50
-
 // --- FUNZIONI ---
 //funzione che genera il campo di battaglia con un numero di tile pari a quello della difficolta
 function fieldGenerator(tileNumber, hook) {
@@ -35,7 +29,7 @@ function generateBombs(bombNumber, range) {
 }
 
 
-//funzione che ritorna il range massimo associato alal difficolta del gioco
+//funzione che ritorna il range massimo associato all difficolta del gioco
 function difficultySelect(diff) {
     let maxRange;
     if (diff === 'easy') {
@@ -48,24 +42,21 @@ function difficultySelect(diff) {
 }
 
 
-
-
-
 // --- MAIN ---
 
 //hook al play e selezione difficolta
 const play = document.querySelector('#play');
-console.log(play);
 
 
 play.addEventListener('click', function () {
+    //selezione difficolta'
     const select = document.querySelector('#difficolta').value;
     const difficulty = difficultySelect(select);
     console.log(difficulty, select)
-
+    //genrazione campo da gioco
     fieldGenerator(difficulty, '.field');
     const bombs = generateBombs(16, difficulty);
-    //hokk per modale
+    //hook per modale
     const modale = document.getElementsByClassName('modal')[0];
     const risultato = document.getElementById('risultato');
 
@@ -82,6 +73,7 @@ play.addEventListener('click', function () {
             if (bombs.includes(Number(button.id))) {
                 button.className = "box bomb";
                 isAlive = false;
+                //mostra bombe alla sconfitta
                 for (let i = 0; i < bombs.length; i++) {
                     document.getElementById(`${bombs[i]}`).className = 'box bomb';
                 }
@@ -100,8 +92,6 @@ play.addEventListener('click', function () {
                     risultato.append(`HAI VINTO!!! iL tuo punteggio e' ${userPickedNumbers.length}`);//per la modale
                     modale.classList.add('active');
                 }
-
-
             }
         });
     }
